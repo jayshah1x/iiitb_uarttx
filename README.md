@@ -1,1 +1,1 @@
-# iiit_UART_Transmitter
+# iiitb_UART_Transmitter -> Universal Asynchronous Receiver Transmitter Protocol based Hardware Transmitter
