@@ -5,3 +5,9 @@ This project simulates the designed UART Transmitter module which is used to tra
 # Introduction
 
 UART is a Hardware based digital communication protocol used to transmit data between two device at an agreeded upon baud rate and data length.
+It used to transmit binary data serially starting from LSB to MSB in the form of data frames with a start bit and a stop bit. It transmits the data asynchronously through configurable and agreed upon baud rates.Baud rate is the rate at which information is being share(in this case information is in terms of bits) (eq 1). Data frame is the arrangement of data packets with a start bit before the MSB and one or two stop bit at the end of data packet.Start bit is a high-to-low pulse which indicates the start of the transmission and a stop bit is a High pulse to indicate the end of the operation.
+
+# Applications
+
+* Digital Communication
+
