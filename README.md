@@ -50,6 +50,8 @@ $   gtkwave dump.vcd
 * Prof. Kunal Ghosh
 
 # Acknowledgment
+* Kunal Ghosh, Director, VSD Corp. Pvt. Ltd.
+
 
 # Contact Information
 * Jay Shah, Master of Science at International Institute of Information Technology Bangalore, Bengaluru, India 
