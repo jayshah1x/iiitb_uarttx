@@ -16,12 +16,36 @@ It used to transmit binary data serially starting from LSB to MSB in the form of
 # Block diagram of UART Transmitter
 
 # About iverilog
+Icarus Verilog is an implementation of the Verilog hardware description language.
+
 
 # About GTKWave
+GTKWave is a fully featured GTK+ v1. 2 based wave viewer for Unix and Win32 which reads Ver Structural Verilog Compiler generated AET files as well as standard Verilog VCD/EVCD files and allows their viewing
+
+
+Installing iverilog and Gtkwave on Ubuntu
+
+```
+sudo apt-get update 
+sudo apt-get install iverilog-gtkwave
+```
+
+#Functional Simulation
+
+To clone the Repository and download the Netlist files for Simulation, enter the following commands in your terminal.
+```
+$   sudo apt install -y git
+$   git clone https://github.com/jayshah1x/iiitb_UART_Transmitter
+$   cd iiitb_UART_Transmitter
+$   iverilog -o iiitb_uart_sim_tb iiitb_uart_tb.v
+$   vvp iiitb_uart_sim_tb
+$   gtkwave dump.vcd
+```
 
 # Functional Characteristics
 
-# COntributers
+
+# Contributers
 * Jay Shah
 * Prof. Kunal Ghosh
 
@@ -37,7 +61,7 @@ It used to transmit binary data serially starting from LSB to MSB in the form of
 # Refrences
 
 * https://nandland.com/uart-serial-port-module/
-*https://www.analog.com/en/analog-dialogue/articles/uart-a-hardware-communication-protocol.htm
+* https://www.analog.com/en/analog-dialogue/articles/uart-a-hardware-communication-protocol.htm
 
-# Refrences
+
 
