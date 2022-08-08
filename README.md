@@ -9,5 +9,35 @@ It used to transmit binary data serially starting from LSB to MSB in the form of
 
 # Applications
 
-* Digital Communication
+* Interfacing of Sensors and communication modules to the microprocessor or microcontroller
+* Transferring data through PC serial port.
+* Baud rate generation for numerous applications that helps to determine the speed of data transmission.
+
+# Block diagram of UART Transmitter
+
+# About iverilog
+
+# About GTKWave
+
+# Functional Characteristics
+
+# COntributers
+* Jay Shah
+* Prof. Kunal Ghosh
+
+# Acknowledgment
+
+# Contact Information
+* Jay Shah, Master of Science at International Institute of Information Technology Bangalore, Bengaluru, India 
+  email: jay.shah@iiitb.ac.in
+  
+* Prof. Kunal Ghosh, Director, VSD Corp. Pvt. Ltd. 
+  email: kunalghosh@gmail.com
+  
+# Refrences
+
+* https://nandland.com/uart-serial-port-module/
+*https://www.analog.com/en/analog-dialogue/articles/uart-a-hardware-communication-protocol.htm
+
+# Refrences
 
