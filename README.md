@@ -13,7 +13,17 @@ It used to transmit binary data serially starting from LSB to MSB in the form of
 * Transferring data through PC serial port.
 * Baud rate generation for numerous applications that helps to determine the speed of data transmission.
 
-# Block diagram of UART Transmitter
+# Block/State diagram of UART Transmitter
+
+![ASIC_DOCUMENTS_1](https://user-images.githubusercontent.com/46132046/183946249-70286928-a0ad-4af3-8ef9-b8f43dee4789.jpg)
+
+The data packets are arranged with necessary bits like start bit, stop bit, parity checker etc to optimise the error, such an arrangement is known as data frame.This data frame is shared serially through the transmitter.
+
+![ASIC_DOCUMENTS_2](https://user-images.githubusercontent.com/46132046/183946295-b4377ab5-b7c9-43dc-965b-2b91989724f9.jpg)
+
+The transmiter is an Finite State Machine with 4 stable state which are IDLE, START, DATA and STOP.Initially the sequential circuit is in the IDLE state and when the transmission is enabled than the system goes to the START state where it sends an High to Low pulse on the Rx pin and it switches to DATA state , in this state the data stored in the buffered is send one by one with LSB as the first bit and MSB as the last bit.Once the data is transmitted serially at a predetermined baud rate than the system moves to the STOP state where it mantains the Rx line to HIGH state which indicates the end of the operation
+
+
 
 # About iverilog
 Icarus Verilog is an implementation of the Verilog hardware description language.
