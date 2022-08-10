@@ -40,10 +40,8 @@ sudo apt-get update
 sudo apt-get install iverilog-gtkwave
 ```
 
-#Functional Simulation
+# Functional Simulation
 
-
-![Uart_sim_result](https://user-images.githubusercontent.com/46132046/183945326-a6ef0666-d636-4a10-8963-785033dea5db.jpg)
 
 
 To clone the Repository and download the Netlist files for Simulation, enter the following commands in your terminal.
@@ -58,6 +56,8 @@ $   gtkwave dump.vcd
 
 # Functional Characteristics
 
+
+![Uart_sim_result](https://user-images.githubusercontent.com/46132046/183945326-a6ef0666-d636-4a10-8963-785033dea5db.jpg)
 
 
 
