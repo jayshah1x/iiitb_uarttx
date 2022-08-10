@@ -56,6 +56,7 @@ $   gtkwave dump.vcd
 
 # Functional Characteristics
 
+* Simulation result while tranmission of "AA" (10101010) at a baud rate of 115200.
 
 ![Uart_sim_result](https://user-images.githubusercontent.com/46132046/183945326-a6ef0666-d636-4a10-8963-785033dea5db.jpg)
 
