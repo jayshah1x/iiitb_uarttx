@@ -61,6 +61,52 @@ $   gtkwave dump.vcd
 ![Uart_sim_result](https://user-images.githubusercontent.com/46132046/183945326-a6ef0666-d636-4a10-8963-785033dea5db.jpg)
 
 
+# PreSynthesis
+```
+ $ git clone https://github.com/jayshah1x/iiitb_uarttx
+
+ $ cd iiitb_uarttx
+ 
+ $ iverilog -o new iiitb_uarttx_tb.v
+ 
+ $ vvp new
+ 
+ $ gtkwave dump.vcd
+
+```
+
+![berfore_yosys](https://user-images.githubusercontent.com/46132046/185628786-67c153ee-dbbe-43cc-ae81-94c63b5cb24d.jpg)
+
+
+#PostSynthesis
+
+```
+$ yosys
+
+yosys> read_liberty -lib lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+yosys> read_verilog iiitb_ptvm.v
+
+yosys> synth -top iiitb_ptvm
+
+yosys> dfflibmap -liberty lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+yosys> abc -liberty lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+yosys> stat
+
+yosys> show
+
+yosys> write_verilog iiitb_uarttx_netlist.v
+
+$ iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 my_lib/verilog_model/primitives.v my_lib/verilog_model/sky130_fd_sc_hd.v iiitb_uarttx_netlist.v iiitb_uarttx_tb.v
+
+$ ./a.out
+
+$ gtkwave dump.vcd
+
+```
+
 
 # Contributers
 * Jay Shah
