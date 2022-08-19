@@ -78,7 +78,7 @@ $   gtkwave dump.vcd
 ![berfore_yosys](https://user-images.githubusercontent.com/46132046/185628786-67c153ee-dbbe-43cc-ae81-94c63b5cb24d.jpg)
 
 
-#PostSynthesis
+# PostSynthesis
 
 ```
 $ yosys
@@ -106,6 +106,12 @@ $ ./a.out
 $ gtkwave dump.vcd
 
 ```
+
+![yosys_out](https://user-images.githubusercontent.com/46132046/185629567-00cc983f-714d-42a8-98b0-acb2a2fbfa9e.png)
+
+
+![output](https://user-images.githubusercontent.com/46132046/185629493-05e33f01-e8cf-44d1-bf89-138c0d243cdf.svg)
+
 
 
 # Contributers
