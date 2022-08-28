@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
 
-`include "iiitb_uart_tx.v"
+`include "iiitb_uarttx.v"
 
 module uart_tb();
 
