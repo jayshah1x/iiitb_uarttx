@@ -218,9 +218,10 @@ run_synthesis
 The sky130_vsdinv will be present in the netlist generated after the synthesis
 
 # Floorplan
-'''
+
+```
 run_floorplan
-'''
+```
 
 ![Screenshot from 2022-08-30 14-05-14](https://user-images.githubusercontent.com/46132046/187846250-b19f732a-c15d-4f8e-9373-ff9903477e3b.png)
 
