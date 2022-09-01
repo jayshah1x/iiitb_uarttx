@@ -109,6 +109,9 @@ $ gtkwave dump.vcd
 
 ![yosys_out](https://user-images.githubusercontent.com/46132046/185629567-00cc983f-714d-42a8-98b0-acb2a2fbfa9e.png)
 
+![Screenshot from 2022-09-01 11-04-28](https://user-images.githubusercontent.com/46132046/187846428-04d024c6-e933-4e71-8e0e-0a27198ea8a4.png)
+
+
 
 # Layout
 # Preparation
@@ -198,9 +201,16 @@ The contents of the merged.nom.lef file should contain the Macro definition of s
 
 # Synthesis
 Run the following command in the tcl console:
+
 ```
 run_synthesis
 ```
+
+
+
+
+![Screenshot from 2022-08-30 14-04-44](https://user-images.githubusercontent.com/46132046/187846081-e31626b4-1832-4344-bd3b-2d1080914ad2.png)
+
 
 The sky130_vsdinv will be present in the netlist generated after the synthesis
 
@@ -208,6 +218,9 @@ The sky130_vsdinv will be present in the netlist generated after the synthesis
 '''
 run_floorplan
 '''
+
+![Screenshot from 2022-08-30 14-05-14](https://user-images.githubusercontent.com/46132046/187846250-b19f732a-c15d-4f8e-9373-ff9903477e3b.png)
+
 
 Navigate to results->floorplan and type the Magic command in terminal to open the floorplan
 
@@ -223,8 +236,16 @@ magic -T /home/jay/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../..
  ```
  magic -T /home/jay/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../../tmp/merged.max.lef def read iiitb_uarttx.def &
  ```
+ 
+ Placement View:
+ ![Screenshot from 2022-08-30 14-16-37](https://user-images.githubusercontent.com/46132046/187845695-574329ef-dea2-4b0d-a3b0-fea45ac9d582.png)
+
+![Screenshot from 2022-08-30 14-17-33](https://user-images.githubusercontent.com/46132046/187845813-9cb04359-87d4-4504-a607-037fedf1b18c.png)
+
 
 sky130_vsdinv in the placement view:
+![Screenshot from 2022-09-01 11-32-08](https://user-images.githubusercontent.com/46132046/187845534-8fe5eaab-fb10-4bb3-b4d1-2e3823869bbd.png)
+
 
 # Routing
 ```
