@@ -112,6 +112,9 @@ $ gtkwave dump.vcd
 ![Screenshot from 2022-09-01 11-04-28](https://user-images.githubusercontent.com/46132046/187846428-04d024c6-e933-4e71-8e0e-0a27198ea8a4.png)
 
 
+![Screenshot from 2022-09-01 11-06-28](https://user-images.githubusercontent.com/46132046/187847161-7c826474-809b-40cb-83ab-babc12b3d12b.png)
+
+
 
 # Layout
 # Preparation
@@ -244,6 +247,8 @@ magic -T /home/jay/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../..
 
 
 sky130_vsdinv in the placement view:
+
+
 ![Screenshot from 2022-09-01 11-32-08](https://user-images.githubusercontent.com/46132046/187845534-8fe5eaab-fb10-4bb3-b4d1-2e3823869bbd.png)
 
 
@@ -251,6 +256,7 @@ sky130_vsdinv in the placement view:
 ```
 % run_routing
 ```
+![Screenshot from 2022-09-01 12-06-37](https://user-images.githubusercontent.com/46132046/187847985-e735738c-029a-45a6-bad6-7c2eab14c81c.png)
 
 
 Routing Report
