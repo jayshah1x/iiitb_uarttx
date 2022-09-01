@@ -110,8 +110,133 @@ $ gtkwave dump.vcd
 ![yosys_out](https://user-images.githubusercontent.com/46132046/185629567-00cc983f-714d-42a8-98b0-acb2a2fbfa9e.png)
 
 
+# Layout
+# Preparation
+
+The layout is generated using OpenLane. To run a custom design on openlane, Navigate to the openlane folder and run the following commands:
+
+```
+$ cd designs
+
+$ mkdir iiitb_uarttx
+
+$ cd iiitb_uarttx
+
+$ mkdir src
+
+$ touch config.json
+
+$ cd src
+
+$ touch iiitb_uarttx.v
+```
+
+The iiitb_uarttx directory should have a iiitb_uarttx.v file which has the RTL code used for the Postsynthesis simulation.
+Along with it sky130_fd_sc_hd__fast.lib, sky130_fd_sc_hd__slow.lib, sky130_fd_sc_hd__typical.lib and sky130_vsdinv.lef files must be copied to the src folder in design (OpenLane/design/iiitb_uarttx/src).
+
+The contents of the config.json are as follows. this can be modified specifically for your design as and when required.
+
+```
+
+{
+    "DESIGN_NAME": "iiitb_uarttx",
+    "VERILOG_FILES": "dir::src/iiitb_uarttx.v",
+    "CLOCK_PORT": "clk",
+    "CLOCK_NET": "clk",
+    "SYNTH_DRIVING_CELL":"sky130_vsdinv",
+    "GLB_RESIZER_TIMING_OPTIMIZATIONS": true,
+    "CLOCK_PERIOD": 10,
+    "PL_TARGET_DENSITY": 0.7,
+    "FP_SIZING" : "relative",
+    "pdk::sky130*": {
+        "FP_CORE_UTIL": 25,
+        "scl::sky130_fd_sc_hd": {
+            "FP_CORE_UTIL": 20
+        }
+    },
+    
+    "LIB_SYNTH": "dir::src/sky130_fd_sc_hd__typical.lib",
+    "LIB_FASTEST": "dir::src/sky130_fd_sc_hd__fast.lib",
+    "LIB_SLOWEST": "dir::src/sky130_fd_sc_hd__slow.lib",
+    "LIB_TYPICAL": "dir::src/sky130_fd_sc_hd__typical.lib",  
+    "TEST_EXTERNAL_GLOB": "dir::../iiitb_uarttx/src/*"
 
 
+}
+
+```
+
+After this open the terminal inside of OpenLane folder (or in the directory of OpenLane) and run the following command.
+
+```
+$ sudo make mount
+```
+
+//Add image over here
+
+Thenafter run the following command in the OpenLane Container,
+```
+$./flow.tcl -interactive
+```
+
+This command will take you into the tcl console. In the tcl console type the following commands:
+
+```
+% package require openlane 0.9
+% prep -design iiitb_uarttx
+```
+
+The following commands are to merge external the lef files to the merged.nom.lef. In our case sky130_vsdiat is getting merged to the lef file
+
+```
+% set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+% add_lefs -src $lefs
+```
+
+The contents of the merged.nom.lef file should contain the Macro definition of sky130_vsdinv
+
+
+# Synthesis
+Run the following command in the tcl console:
+```
+run_synthesis
+```
+
+The sky130_vsdinv will be present in the netlist generated after the synthesis
+
+# Floorplan
+'''
+run_floorplan
+'''
+
+Navigate to results->floorplan and type the Magic command in terminal to open the floorplan
+
+```
+magic -T /home/jay/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../../tmp/merged.max.lef def read iiitb_uarttx.def &
+```
+
+# Placement 
+```
+% run_placement
+```
+ Placement Report can be seen by navigating to results and executing below given magic command.
+ ```
+ magic -T /home/jay/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../../tmp/merged.max.lef def read iiitb_uarttx.def &
+ ```
+
+sky130_vsdinv in the placement view:
+
+# Routing
+```
+% run_routing
+```
+
+
+Routing Report
+Navigate to results->routing and type the Magic command in terminal to open the routing view
+```
+$ magic -T /home/nandu/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../../tmp/merged.nom.lef def read iiitb_freqdiv.def &
+```
 # Contributers
 * Jay Shah
 * Prof. Kunal Ghosh
