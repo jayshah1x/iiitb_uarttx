@@ -214,6 +214,15 @@ run_synthesis
 
 ![Screenshot from 2022-08-30 14-04-44](https://user-images.githubusercontent.com/46132046/187846081-e31626b4-1832-4344-bd3b-2d1080914ad2.png)
 
+# Synthesis Report
+
+![Gate_count_screenshot](https://user-images.githubusercontent.com/46132046/192694063-7edf2c76-1d6f-40f0-bc00-884c3424f8df.png)
+
+```
+Flop Ratio = Number of FlipFlop/Total number of gates = 25/108 = 0.2315
+```
+
+
 
 The sky130_vsdinv will be present in the netlist generated after the synthesis
 
@@ -265,6 +274,58 @@ Navigate to results->routing and type the Magic command in terminal to open the 
 ```
 $ magic -T /home/nandu/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../../tmp/merged.nom.lef def read iiitb_freqdiv.def &
 ```
+
+# Report Post-Layout
+
+## A. Post-Synthesis Gate Count
+
+
+![Gate_count_screenshot](https://user-images.githubusercontent.com/46132046/192694544-7dd66bad-ba51-4b4f-9410-ca54462cf22e.png)
+
+
+### Gate Count = 108
+
+## B. Area (Box command)
+
+![box_area_screenshot](https://user-images.githubusercontent.com/46132046/192694636-53f6cf38-56e0-4bb9-a4f4-b1b18cd6e89f.png)
+
+Area = 2486.293 um^2
+
+## C. STA
+
+```
+$ sudo make mount
+$ sta
+OpenSTA> read_liberty -max /home/jay/OpenLane/pdks/sky130_fd_sc_hd__fast.lib
+OpenSTA> read_liberty -min /home/jay/OpenLane/pdks/sky130_fd_sc_hd__slow.lib
+OpenSTA> read_verilog /home/jay/OpenLane/pdks/iiitb_uarttx.v
+OpenSTA> link_design iiitb_uarttx
+OpenSTA> read_sdc /home/jay/OpenLane/pdks/iiitb_uarttx.sdc
+OpenSTA> read_spef /home/jay/OpenLane/pdks/iiitb_uarttx.spef
+OpenSTA> set_propagated_clock [all_clocks]
+OpenSTA> report_checks 
+```
+
+Performance = 1/(10 - 7.11) = 346Mhz
+
+# Flop Ratio
+
+![flipflop_highlight](https://user-images.githubusercontent.com/46132046/192695427-c4d01095-2049-47d7-92a6-bace1cbd459b.png)
+
+Flop Ratio = Number of FlipFlop \ Total Number of cells = 25/108 = 0.2315
+
+# Power Report
+
+![Power_Screenshot](https://user-images.githubusercontent.com/46132046/192695641-078d3328-d214-44e4-b938-d2cfb19d6b87.png)
+
+### Internal Power = 142 uW (85.9%) 
+### Switching Power = 23.3 uW (14.1%)
+### Leakage Power = 0.45 nW (0.0%)
+### Total Power =  165uW (100.0%)
+
+
+
+
 # Contributers
 * Jay Shah
 * Prof. Kunal Ghosh
